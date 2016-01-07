@@ -1,0 +1,65 @@
+.image-logo{
+    height: 50px;
+    margin-top:-25px;
+}
+
+.div-logo-border{
+    border-top:5px solid blue;
+    border-bottom:5px solid green;
+    height: 15px;
+    margin-top:20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.div-form{
+    background: palegreen;
+}
+
+.background-color{
+    background-color: whitesmoke;
+    border-radius: 15px;
+    padding:15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.background-image-right {
+    background-color: whitesmoke;
+    background-image: url("../images/cartoon_cloud.png");
+    background-repeat:no-repeat;
+    background-position: right;
+    background-size: contain;
+    padding:20px;
+}
+
+.background-image-center{
+    background-color: whitesmoke;
+    background-image: url("../images/cartoon_cloud.png");
+    background-position: 50% 39%;
+    background-repeat:no-repeat;
+    background-size: 30%;
+}
+
+.border-green {
+    border: 2px solid green;
+    border-radius: 10px;
+}
+
+.border-green-1px {
+    border: 1px solid green;
+    border-radius: 4px;
+}
+
+.color-green{
+    color: green;
+}
+
+.color-red{
+    color: red;
+}
+
+.border-blue{
+    border: 2px solid blue;
+    border-radius: 10px;
+}
