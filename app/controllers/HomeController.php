@@ -49,8 +49,8 @@ class HomeController extends BaseController {
 		$required_amount = Calculation::required_amount($objective,$order);
 		$n_visitors = Calculation::visitors($rate,$objective,$order);
 		$paying_sites_together = Calculation::paying_sites_together($paid_income,$add_words_income);
-		$add_words_visitors = Calculation::add_words_visitors($add_words_income,$objective,$n_visitors,$order);
-		$remaining_percentage = Calculation::remaining($direct_income,$google_income,$add_words_income,$paid_income,$unpaid_income);
+		$add_words_visitors = Calculation::add_words_visitors($add_words_income,$rate,$objective,$order);
+        $remaining_percentage = Calculation::remaining($direct_income,$google_income,$add_words_income,$paid_income,$unpaid_income);
 		$bought_visitors = Calculation::bought_visitors($rate,$paid_income,$add_words_income,$objective,$order);
 		$budget_per_visitor = Calculation::budget_per_visitor($objective,$marketing_percentage,$rate,$paid_income,$add_words_income,$order);
 		return View::make('calculation')->with(array(

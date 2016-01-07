@@ -19,7 +19,7 @@ Class Calculation {
 
   public static function visitors ($conversionrate,$objective,$avarageorder){
     $required = self::required_amount($objective,$avarageorder);
-    $visitors=$required*100/$conversionrate;
+    $visitors = round ($required*100/$conversionrate,0);
     return $visitors;
   }
 
@@ -41,11 +41,27 @@ Class Calculation {
     return $marketingamunt;
   }
 
+  public static function marketing_percentage($objective_amount,$budget_amount){
+    $budget_percentage = round(100/($objective_amount/$budget_amount),1);
+    return $budget_percentage;
+  }
+
   public static function budget_per_visitor($objective,$marketingpercentage,$conversionrate,$paidincome,$addwordsincome,$avarageorder){
     $bought_visitors = self::bought_visitors($conversionrate,$paidincome,$addwordsincome,$objective,$avarageorder);
     $marketing_amount = self::marketing_amount($objective,$marketingpercentage);
     $budget_per_visitor = round($marketing_amount/$bought_visitors,2);
     return $budget_per_visitor;
+  }
+
+  public static function addwords_possibility_text ($addword_percentage,$addWord_possibility,$conversion_rate,$objective_amount,$average_order){
+    $add_word_visitors = self::add_words_visitors($addword_percentage,$conversion_rate,$objective_amount,$average_order);
+    $addWord_possibility = intval($addWord_possibility);
+    if($add_word_visitors<$addWord_possibility){
+      $addWord_possibility_text="It is possible!";
+    }else{
+      $addWord_possibility_text="It is NOT possible as Addwords will bring only ".$addWord_possibility." visitors";
+    }
+    return $addWord_possibility_text;
   }
 
 }

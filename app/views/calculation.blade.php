@@ -118,7 +118,7 @@
                         @if($add_words_visitors<=$google_search_amount)
                             <p class="lead color-green" id='addWordPossibilityText'>It is possible!</p>
                         @else
-                            <p class="lead color-red" id='addWordPossibilityText'>It is NOT possible as Addwords will bring only $googlesearchesamount visitors</p>
+                            <p class="lead color-red" id='addWordPossibilityText'>It is NOT possible as Addwords will bring only {{$google_search_amount}} visitors</p>
                         @endif
                     </div>
                     <div class="col-md-2 col-lg-offset-5">
