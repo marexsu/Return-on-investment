@@ -44,7 +44,7 @@ class HomeController extends BaseController {
 		$average_cpc=1.1;
 		$searchterms = array();
         for($counter=0;$counter<5;$counter++){
-            $searchterms[$counter] = Input::get("searchterms$counter");
+            $searchterms[$counter] = Input::get("searchterms_$counter");
 
         }
         DB::table('overview')->insert(

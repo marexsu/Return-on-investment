@@ -2,43 +2,43 @@
 namespace app\model;
 Class Calculation {
 
-  public static function paying_sites_together($paidincome,$addwordsincome){
-    $payingsitestogether = $paidincome+$addwordsincome;
-    return $payingsitestogether ;
+  public static function paying_sites_together($paid_income,$addwords_income){
+    $paying_sites_together = $paid_income+$addwords_income;
+    return $paying_sites_together ;
   }
 
-  public static function required_amount ($objective,$avarageorder){
-    $required = round($objective/$avarageorder,0);
+  public static function required_amount ($objective,$average_order){
+    $required = round($objective/$average_order,0);
     return $required;
   }
 
-  public static function remaining ($directlyincome,$googleincome,$addwordsincome,$paidincome,$unpaidincome){
-    $remaining = 100-$directlyincome-$googleincome-$addwordsincome-$paidincome-$unpaidincome ;
+  public static function remaining ($direct_income,$google_income,$addwords_income,$paid_income,$unpaid_income){
+    $remaining = 100-$direct_income-$google_income-$addwords_income-$paid_income-$unpaid_income ;
     return $remaining;
   }
 
-  public static function visitors ($conversionrate,$objective,$avarageorder){
-    $required = self::required_amount($objective,$avarageorder);
-    $visitors = round ($required*100/$conversionrate,0);
+  public static function visitors ($conversion_rate,$objective,$averag_eorder){
+    $required = self::required_amount($objective,$averag_eorder);
+    $visitors = round ($required*100/$conversion_rate,0);
     return $visitors;
   }
 
-  public static function bought_visitors ($conversionrate,$paidincome,$addwordsincome,$objective,$avarageorder){
-    $visitors = self::visitors($conversionrate,$objective,$avarageorder);
-    $payingsitestogether = self::paying_sites_together($paidincome,$addwordsincome);
-    $boughtvisitors = $visitors*$payingsitestogether/100;
-    return $boughtvisitors;
+  public static function bought_visitors ($conversion_rate,$paid_income,$addwords_income,$objective,$average_order){
+    $visitors = self::visitors($conversion_rate,$objective,$average_order);
+    $paying_sites_together = self::paying_sites_together($paid_income,$addwords_income);
+    $bought_visitors = $visitors*$paying_sites_together/100;
+    return $bought_visitors;
   }
 
-  public static function add_words_visitors($addwordsincome,$conversionrate,$objective,$avarageorder){
-    $visitors = self::visitors($conversionrate,$objective,$avarageorder);
-    $addwordsvisitors = round($visitors*$addwordsincome/100,0);
-    return $addwordsvisitors;
+  public static function add_words_visitors($addwords_income,$conversion_rate,$objective,$average_order){
+    $visitors = self::visitors($conversion_rate,$objective,$average_order);
+    $addwords_visitors = round($visitors*$addwords_income/100,0);
+    return $addwords_visitors;
   }
 
-  public static function marketing_amount($objective,$marketingpercentage){
-    $marketingamunt = $objective*$marketingpercentage/100;
-    return $marketingamunt;
+  public static function marketing_amount($objective,$marketing_percentage){
+    $marketing_amunt = $objective*$marketing_percentage/100;
+    return $marketing_amunt;
   }
 
   public static function marketing_percentage($objective_amount,$budget_amount){
@@ -46,9 +46,9 @@ Class Calculation {
     return $budget_percentage;
   }
 
-  public static function budget_per_visitor($objective,$marketingpercentage,$conversionrate,$paidincome,$addwordsincome,$avarageorder){
-    $bought_visitors = self::bought_visitors($conversionrate,$paidincome,$addwordsincome,$objective,$avarageorder);
-    $marketing_amount = self::marketing_amount($objective,$marketingpercentage);
+  public static function budget_per_visitor($objective,$marketing_percentage,$conversion_rate,$paid_income,$addwords_income,$average_order){
+    $bought_visitors = self::bought_visitors($conversion_rate,$paid_income,$addwords_income,$objective,$average_order);
+    $marketing_amount = self::marketing_amount($objective,$marketing_percentage);
     $budget_per_visitor = round($marketing_amount/$bought_visitors,2);
     return $budget_per_visitor;
   }

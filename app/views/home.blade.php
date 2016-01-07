@@ -1,6 +1,6 @@
 @extends('header')
 @section('body')
-  <div class="container">
+<div class="container">
     <div class="row">
         <div class="col-xs-12 col-sm-8 col-md-12">
             <div class="div-logo-border">
@@ -24,7 +24,7 @@
                 <div class="form-group">
                     <label for="inputPassword3" class="col-sm-5 control-label">Conversion rate</label>
                     <div class="col-sm-3">
-                        <input type="number" required name="rate" class="form-control" id="conversionRate" placeholder="10%" min="1" max="100">
+                        <input type="number" required name="rate" class="form-control" id="conversion_rate" placeholder="10%" min="1" max="100">
                     </div>
                     <div class="col-sm-offset-0 col-sm-3">
                         <div class="checkbox">
@@ -57,54 +57,54 @@
                         </div>
                     </div>
                 </div>
-  @for($counter=0;$counter<5;$counter++)
-      @if($counter==0)
-          <div class="form-group">
-              <label for="inputPassword3" class="col-sm-5 control-label">Search terms</label>
-              <div class="col-sm-5">
-                  <input type="text" name="searchterms{{$counter}}" class="form-control" id="inputEmail3" placeholder="">
-              </div>
-          </div>
-       @else
-          <div class="form-group">
-              <label for="inputPassword3" class="col-sm-5 control-label"></label>
-              <div class="col-sm-5">
-                  <input type="text" name="searchterms{{$counter}}" class="form-control" id="inputEmail3" placeholder="">
-              </div>
-          </div>
-        @endif
-      @endfor
-      <div class="form-group">
-          <div class="col-sm-2 col-lg-offset-5">
-              <input class="btn btn-success" type="submit" value="Generate ROI" name="submit">
-          </div>
-      </div>
-  </form>
-</div>
-<div class="col-xs-12 col-sm-8 col-md-6 col-md-offset-3">
-  <div class="row">
-      <div class="col-sm-3">
-          <h2>Cases</h2>
-      </div>
-      <div class="col-sm-7 col-sm-offset-2">
-          <a href="{{ URL::route('overview') }}" ><h2>Example calculations</h2></a>
-      </div>
-  </div>
-    <form class="form-horizontal background-color background-image-right">
-        <div class="form-group">
-      @foreach($results as $result)
-              <div class="row">
-                  <div class="col-sm-5">
-                      <input type="text" class="form-control" id="inputEmail3" value="{{$result->url}}" readonly>
-                  </div>
-                  <div class="col-sm-2">
-                      <p>25%</p>
-                  </div>
-              </div>
-      @endforeach
+                @for($counter=0;$counter<5;$counter++)
+                    @if($counter==0)
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-5 control-label">Search terms</label>
+                            <div class="col-sm-5">
+                                <input type="text" name="searchterms_{{$counter}}" class="form-control" id="inputEmail3" placeholder="">
+                            </div>
+                        </div>
+                    @else
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-5 control-label"></label>
+                            <div class="col-sm-5">
+                                <input type="text" name="searchterms_{{$counter}}" class="form-control" id="inputEmail3" placeholder="">
+                            </div>
+                        </div>
+                    @endif
+                @endfor
+                <div class="form-group">
+                    <div class="col-sm-2 col-lg-offset-5">
+                        <input class="btn btn-success" type="submit" value="Generate ROI" name="submit">
+                    </div>
+                </div>
+            </form>
         </div>
-    </form>
+        <div class="col-xs-12 col-sm-8 col-md-6 col-md-offset-3">
+          <div class="row">
+              <div class="col-sm-3">
+                  <h2>Cases</h2>
+              </div>
+              <div class="col-sm-7 col-sm-offset-2">
+                  <a href="{{ URL::route('overview') }}" ><h2>Example calculations</h2></a>
+              </div>
+          </div>
+            <form class="form-horizontal background-color background-image-right">
+                <div class="form-group">
+                    @foreach($results as $result)
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <input type="text" class="form-control" id="inputEmail3" value="{{$result->url}}" readonly>
+                            </div>
+                            <div class="col-sm-2">
+                                <p>25%</p>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </form>
+        </div>
     </div>
-</div>
 </div>
 @stop
