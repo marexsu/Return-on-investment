@@ -84,20 +84,20 @@
 <div class="col-xs-12 col-sm-8 col-md-6 col-md-offset-3">
   <div class="row">
       <div class="col-sm-3">
-          <h1>Cases</h1>
+          <h2>Cases</h2>
       </div>
-      <div class="col-sm-6 col-sm-offset-3">
-          <h1><small>Example calculations</small></h1>
+      <div class="col-sm-7 col-sm-offset-2">
+          <a href="{{ URL::route('overview') }}" ><h2>Example calculations</h2></a>
       </div>
   </div>
     <form class="form-horizontal background-color background-image-right">
         <div class="form-group">
       @foreach($results as $result)
               <div class="row">
-                  <div class="col-sm-4">
+                  <div class="col-sm-5">
                       <input type="text" class="form-control" id="inputEmail3" value="{{$result->url}}" readonly>
                   </div>
-                  <div class="col-sm-2 col-sm-offset-2">
+                  <div class="col-sm-2">
                       <p>25%</p>
                   </div>
               </div>

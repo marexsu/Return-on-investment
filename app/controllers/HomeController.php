@@ -5,14 +5,22 @@ class HomeController extends BaseController {
 	public function home()
 	{
 		//dd('test');
-		//$url=array();
-		$results = DB::select('SELECT * FROM `url` ORDER BY `id` DESC LIMIT 5');
+		$results = DB::select('SELECT * FROM `overview` ORDER BY `id` DESC LIMIT 5');
 		return View::make('home')->with(array(
 			'results'=>$results
 		));
 	}
 
-	public function calculation(){
+    public function overview()
+    {
+        $results = DB::select('SELECT * FROM `overview`');
+        return View::make('overview')->with(array(
+            'results'=>$results
+        ));
+    }
+
+	public function calculation()
+    {
 		if (Request::isMethod('post'))
 		{
 			$submit = Input::get('submit');
@@ -32,17 +40,31 @@ class HomeController extends BaseController {
 		$paid_income=15;
 		$add_words_income=35;
 		$unpaid_income=5;
-		$google_searches_amount=100;
+		$google_searches_amount=0;
 		$average_cpc=1.1;
 		$searchterms = array();
-		$n_of_searches=0;
-		for($counter=0;$counter<5;$counter++){
-			$searchterms[$counter] = Input::get("searchterms$counter");
+        for($counter=0;$counter<5;$counter++){
+            $searchterms[$counter] = Input::get("searchterms$counter");
 
-		}
+        }
+        DB::table('overview')->insert(
+            array(
+                'revenue_per_month' => $objective,
+                'average_order' => $order,
+                'conversion_rate' => $rate,
+                'url' => $url,
+                'email' => $email,
+                'newsletter' => $news,
+                'search_term_1' => $searchterms[0],
+                'search_term_2' => $searchterms[1],
+                'search_term_3' => $searchterms[2],
+                'search_term_4' => $searchterms[3],
+                'search_term_5' => $searchterms[4],
+                )
+        );
 		foreach ($searchterms as $value) {
 			if($value!=""){
-				$n_of_searches=$n_of_searches+100;
+                $google_searches_amount=$google_searches_amount+100;
 			}
 		}
 		$marketing_amount = Calculation::marketing_amount($objective,$marketing_percentage);
