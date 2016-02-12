@@ -41,5 +41,6 @@
     <div class="row">
         <div class="col-md-1"></div>
         <div class="col-md-2"><a class="btn btn-default btn btn-primary" href="{{ URL::route('home') }}" role="button">Home</a></div>
+        <div class="col-md-2"><a class="btn btn-default btn btn-primary" href="{{ URL::route('log_out') }}" role="button">Log OUT</a></div>
     </div>
 @stop
