@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 07, 2016 at 06:05 PM
+-- Generation Time: Feb 12, 2016 at 01:21 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `overview` (
   `search_term_4` varchar(255) NOT NULL,
   `search_term_5` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=20 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `overview`
@@ -52,7 +52,29 @@ INSERT INTO `overview` (`id`, `revenue_per_month`, `average_order`, `conversion_
 (3, '800', '80', '15', 'https://www.google.com', 'marexsu@gmail.com', 0, 'google', '', '', '', ''),
 (4, '1600', '50', '12', 'https://www.google.com', 'marexsu@gmail.com', 0, 'google', '', '', '', ''),
 (5, '2200', '20', '12', 'https://www.google.com', 'marexsu@gmail.com', 0, 'google', '', 'google', '', ''),
-(6, '2200', '20', '12', 'https://www.netherlands.com', 'marexsu@gmail.com', 0, 'google', '', '', '', '');
+(6, '2200', '20', '12', 'https://www.netherlands.com', 'marexsu@gmail.com', 0, 'google', '', '', '', ''),
+(7, '1000', '10', '10', 'http://www.cool.com', 'marexsu@gmail.com', 0, 'sa', '', '', '', ''),
+(8, '1200', '100', '15', 'http://www.cool.com', 'marexsu@gmail.com', 0, 'search', '', '', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` text NOT NULL,
+  `password` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `password`) VALUES
+(1, 'admin', '21232f297a57a5a743894a0e4a801fc3');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
